@@ -86,6 +86,8 @@ gcc15Stdenv.mkDerivation (finalAttrs: {
     source ${npmHooks.npmConfigHook}/nix-support/setup-hook
     npmRoot=src/typescript/api npmDeps=${finalAttrs.apiDeps} npmConfigHook
     npmRoot=src/typescript/extension-manager npmDeps=${finalAttrs.extensionManagerDeps} npmConfigHook
+    sed -i -e "s|@NATIVE_HOST_BIN@|$out/libexec/vicinae/vicinae-browser-link|" "$out/share/vicinae/native-messaging-hosts/com.vic
+inae.vicinae.firefox.json"
   '';
 
   qtWrapperArgs = [
