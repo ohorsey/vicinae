@@ -1,7 +1,7 @@
 {
   "name": "com.vicinae.vicinae",
   "description": "Vicinae Native Messaging Host",
-  "path": "@NATIVE_HOST_BIN@",
+  "path": "/nix/store/vppi7y5xzji7i8s13ma6yg66l3m9fwyq-vicinae-0.20.14/libexec/vicinae/vicinae-browser-link",
   "type": "stdio",
   "allowed_extensions": [
     "vicinae@vicinae.com"
