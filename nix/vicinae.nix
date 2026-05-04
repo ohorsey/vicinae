@@ -99,16 +99,7 @@ inae.vicinae.firefox.json"
     }"
   ];
   installPhase = ''
-    runHook preInstall
-
-    # run the default install actions provided by mkDerivation/cmake
-    if [ -n "${stdenv.hostPlatform.system:-}" ]; then
-      # This invokes the standard installPhase from stdenv
-      ${stdenv.hostPlatform.buildPlatform.stdenv.shell:-/bin/sh} -c "true"
-    fi
-    runHook postInstall
-    sed -i -e "s|@NATIVE_HOST_BIN@|$out/libexec/vicinae/vicinae-browser-link|" "$out/share/vicinae/native-messaging-hosts/com.vic
-inae.vicinae.firefox.json"
+    sed "s|@NATIVE_HOST_BIN@|$out/libexec/vicinae/vicinae-browser-link|" -i $out/share/vicinae/native-messaging-hosts/com.vicinae.vicinae.firefox.json
   '';
 
   meta = {
