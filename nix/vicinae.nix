@@ -80,6 +80,11 @@ gcc15Stdenv.mkDerivation (finalAttrs: {
     libxml2
     glaze
   ];
+  installPhase = ''
+    mkdir -p "$out/lib/mozilla/native-messaging-hosts"
+    sed -i -e "s|@NATIVE_HOST_BIN@|$out/libexec/vicinae/vicinae-browser-link|" "../src/browser-extension/native-host/com.vicinae.vicinae.firefox.json"
+    cp "../src/browser-extension/native-host/com.vicinae.vicinae.firefox.json" "$out/lib/mozilla/native-messaging-hosts/"
+  '';
 
   postPatch = ''
     local postPatchHooks=()
